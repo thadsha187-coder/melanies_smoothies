@@ -25,8 +25,6 @@ ingredients_list = st.multiselect(
     ,max_selections=5
     )
 
-if ingredients_list:
-
     ingredients_string = ''
 
     for fruit_chosen in ingredients_list:
@@ -49,3 +47,7 @@ if ingredients_list:
 my_dataframe = session.table("smoothies.public.orders") \
     .filter(col("ORDER_FILLED") == 0) \
     .collect()
+
+import requests  
+smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
+st.text(smoothiefroot_response)
